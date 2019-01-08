@@ -1,0 +1,47 @@
+body {
+	height: 100%;
+}
+.restaurant {
+	background: black;
+}
+.restaurant-pic {
+	height: 500px;
+	background: url('https://i.ytimg.com/vi/7mphrlxJl5k/maxresdefault.jpg'), black;
+	background-position: center;
+}
+
+.restaurant-info {
+	height: 50vh;
+}
+
+.reservation {
+	height: 100%;
+	margin-bottom: 50px;
+}
+
+.subtitle {
+	margin-bottom: 25px;
+}
+
+/* add a deli pattern background*/
+.reservation-form-container {
+	top:50%;
+	height: 100%;
+}
+
+.reservation-form {
+	/*position: absolute;*/
+	margin-top: 50px;
+	top: 50%;
+}
+
+.restaurant-locator {
+	margin-top: 20px;
+	height: 50vh;
+}
+.location {
+	height:500px;
+}
+.store-hours {
+	margin-top: 20px;
+}

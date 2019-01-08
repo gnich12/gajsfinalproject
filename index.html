@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Monk's Café</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-spy="scroll" data-target=".navbar-inverse" data-offset="50">
+	<main>
+			<!-- navbar -->
+	<div id="navbar" class="navbar-collapse navbar-inverse collapse navbar-fixed-top">
+			<a href="#" class="navbar-brand">Monk's Café</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="#reservation">Reservation</a></li>
+				<li><a href="#map">Map</a></li>
+			</ul>
+		</div>
+		<div class="container-fluid restaurant">
+			<div class="container restaurant-pic">
+			</div>
+		</div>
+	
+		<div id="reservation" class="container reservation">
+	
+			<!-- reservation form -->
+			<div class="row reservation-form" >
+				<h2 class="text-center subtitle">Make a Reservation</h2>
+				<div class="col-md-6">
+	
+						<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title text-center">Reserve your spot</h3>
+								</div>
+								<div class="panel-body">
+										<form class="form-horizontal reservations">
+												<div class="form-group row">
+													<label for="client" class="col-sm-2 control-label">Name</label>
+													<div class="col-sm-5"><input id="client" type="text" class="form-control reservation-name" placeholder="Jane Doe"></div>
+												</div>
+												<div class="form-group row">
+														<label for="selector" class="col-sm-2 control-label">Date</label>
+													<div class="dropdown">		
+														<div class="col-sm-2">
+																<button class="btn btn-default dropdown-toggle" id='selector' type="button" data-toggle="dropdown">
+																		Select A Day
+																		<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu reservation-day">
+																		<li><a>Today</a></li>
+																		<li><a>Tomorrow</a></li>
+																		<li><a>The day after next</a></li>
+																	</ul>
+														</div>
+													</div>
+												</div>
+												<div class="form-group row">
+														<label for="selector" class="col-sm-2 control-label"></label>
+													<div class="col-sm-2">
+															<button class="btn btn-default reservation-button">Set Reservation</button>
+													</div>
+														
+												</div>
+												<div class="form-group row">
+														<label for="selector" class="col-sm-2 control-label"></label>
+														<div class="col-sm-5">
+															<span id="errorMsg" style="color:red"></span>
+														</div>
+												</div>
+											</form>
+								</div>
+							</div>	
+				</div>
+				<div class="col-md-6">
+						<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title text-center" >Current Reservations &nbsp;<span id="current_reservation"></span></h3>
+								</div>
+								<div class="panel-body">
+										<table class="table table-striped table-condensed col-md-6">
+												<thead>
+													<th>Cancel</th>
+													<th>Name</th>
+													<th>Day</th>
+												</thead>
+												<tbody class="reservation-list"></tbody>
+											</table>
+								</div>
+							</div>
+				</div>
+			</div>
+	
+			<!-- reservations -->
+			
+		</div>
+	
+		<div class="container">
+			<div class="location">
+				<div class="row">
+						<h2 class="text-center">Come Dine with Us</h2>
+					<div class="col-sm-6">
+							<div id="map" class="restaurant-locator"></div>
+					</div>
+					<div class="col-sm-6">
+							<div class="panel panel-default store-hours">
+									<div class="panel-body">
+										<address>
+												<span class="glyphicon glyphicon-map-marker" aria-hidden="true">											
+													</span> <strong>Monk's Cafe</strong><br>
+											123 Upstate Dr <br>
+											New York, NY 12345 <br>
+											<abbr title="phone">Phone:</abbr> (123)-896-5632
+										</address>
+									</div>
+								</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+
+	<script id="reservation-template" type="text/x-handlebars-template">
+	<tr data-id={{id}}>
+		<td><span class="glyphicon glyphicon-remove text-center"></span></td>
+		<td>{{name}}</td>
+		<td>{{day}} </td>
+	</tr>
+	</script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- custom js -->
+  <script src="js/main.js"></script>
+
+	<!-- google maps -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZDLXWuDmfYSTCoBxn9GC3X5b6f0u22mM&callback=initMap"
+	 type="text/javascript"></script>
+</body>
+</html>
