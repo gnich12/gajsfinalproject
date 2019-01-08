@@ -18,7 +18,6 @@ var reservationData = {
 
 $('.reservation-day li').on('click', function (e) {
   reservationData.day = $(this).find('a').html();
-  console.log($(this).index())
   $(this)
   .parent()
   .parent()
@@ -59,7 +58,10 @@ function validation (reservationDat) {
   $('#errorMsg').empty();
   if(reservationDat.name !== '' && reservationDat.day !== "") {
     return true
-  } else if (reservationDat.name === "") {
+   } else if (reservationDat.name === "" && reservationDat.day === "") {
+     $('#errorMsg').text('Please provide a name and a day!').fadeIn().fadeOut(1000);
+     return false
+   } else if (reservationDat.name === "") {
     $('#errorMsg').text('Please provide a name!').fadeIn().fadeOut(1000);
     return false
   } else if (reservationDat.day === "") {
@@ -75,14 +77,12 @@ function getReservations () {
   database.ref('reservations').on('value', function (results) {
     var reservations = results.val();
     var items = [];
-    console.log(reservations)
     for(var i in reservations) {
       var context = {
         name: reservations[i].name,
         day: reservations[i].day,
         id: i
       }
-      console.log(context)
       var source = $("#reservation-template").html();
       var template = Handlebars.compile(source);
       var reservationListElement = template(context)
@@ -97,9 +97,8 @@ function getReservations () {
 }
 
 function getReservationCount () {
-  var c = $('.reservation-list tr').length
-  $('#current_reservation').empty().append('('+c+')')
-  
+  var reservation_count = $('.reservation-list tr').length
+  $('#current_reservation').empty().append('('+reservation_count+')')
 }
 
 getReservations();
